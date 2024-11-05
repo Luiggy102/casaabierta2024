@@ -1,0 +1,98 @@
+# docker compose para la casa abierta
+services:
+  # 5.7GB
+  windows10:
+    image: dockurr/windows
+    container_name: windows11
+    environment:
+      VERSION: "win10"
+      LANGUAGE: "Spanish"
+      USERNAME: "casaAbierta"
+      PASSWORD: "ACCESO2020*"
+      #   valores adicionales por defecto
+      #   DISK_SIZE: "64G"
+      #   CPU_CORES: "2"
+      #   RAM_SIZE: "4G"
+      #   REGION: "en-US" # es-EC
+      #   KEYBOARD: "en-US" # es-EC
+    devices:
+      - /dev/kvm
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 8006:8006
+      - 3389:3389/tcp
+      - 3389:3389/udp
+    stop_grace_period: 2m
+  # 4.0 GB
+  windows8:
+    image: dockurr/windows
+    container_name: windows8
+    environment:
+      VERSION: "win8"
+      LANGUAGE: "Spanish"
+      USERNAME: "casaAbierta"
+      PASSWORD: "ACCESO2020*"
+    devices:
+      - /dev/kvm
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 8007:8007
+      - 3390:3390/tcp
+      - 3390:3390/udp
+    stop_grace_period: 2m
+  # 3.0GB
+  windows7:
+    image: dockurr/windows
+    container_name: windows7
+    environment:
+      VERSION: "win7"
+      LANGUAGE: "Spanish"
+      USERNAME: "casaAbierta"
+      PASSWORD: "ACCESO2020*"
+    devices:
+      - /dev/kvm
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 8008:8008
+      - 3391:3391/tcp
+      - 3391:3391/udp
+    stop_grace_period: 2m
+  # 3.0GB
+  windowsvista:
+    image: dockurr/windows
+    container_name: windowsvista
+    environment:
+      VERSION: "vista"
+      LANGUAGE: "Spanish"
+      USERNAME: "casaAbierta"
+      PASSWORD: "ACCESO2020*"
+    devices:
+      - /dev/kvm
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 8009:8009
+      - 3392:3392/tcp
+      - 3392:3392/udp
+    stop_grace_period: 2m
+  # 0.6GB
+  windowsXp:
+    image: dockurr/windows
+    container_name: windowsxp
+    environment:
+      VERSION: "winxp"
+      LANGUAGE: "Spanish"
+      USERNAME: "casaAbierta"
+      PASSWORD: "ACCESO2020*"
+    devices:
+      - /dev/kvm
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 8010:8010
+      - 3393:3393/tcp
+      - 3393:3393/udp
+    stop_grace_period: 2m
